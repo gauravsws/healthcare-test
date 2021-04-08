@@ -1,0 +1,413 @@
+@import "./variables.scss";
+$themeColor: #007bff;
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  box-sizing: border-box;
+}
+a,
+a:hover,
+button:focus {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+}
+button {
+  font-size: 13px !important;
+}
+button:active,
+button:focus,
+button,
+a:active,
+a:focus {
+  outline: none;
+}
+p,
+label {
+  margin: 0px;
+}
+img {
+  max-width: 100%;
+}
+body {
+  font-size: 13px;
+  font-family: "Open Sans", sans-serif;
+  padding-top: 50px;
+}
+input {
+  outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin: 0px;
+}
+.sideBar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  background: #ffffff;
+  width: 250px;
+  padding: 15px;
+  @include box-shadow(0, 0px, 10px, 0, rgba(0, 0, 0, 0.08));
+  z-index: 1;
+
+  h6 {
+    padding: 0.5rem;
+  }
+  .navbar-light .navbar-toggler {
+    background: #ffffff;
+  }
+  .logo {
+    display: block;
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 0.5rem;
+    img {
+      max-width: 100%;
+      height: 40px;
+    }
+  }
+  .navbar {
+    padding: 0px;
+  }
+  .navbar-nav {
+    flex-direction: column;
+    position: fixed;
+    bottom: 20px;
+    top: 90px;
+    display: flex;
+    width: 210px;
+    li {
+      &.active > a,
+      &:hover > a {
+        color: $themeColor !important;
+      }
+      a {
+        position: relative;
+        padding-left: 25px !important;
+
+        i {
+          position: absolute;
+          left: 8px;
+          top: 11px;
+        }
+      }
+
+      .dropdown-toggle::after {
+        position: relative;
+        top: 3px;
+      }
+
+      &.li-mobile {
+        display: none;
+
+        &.notifi-li {
+          position: relative;
+
+          span {
+            width: 20px;
+            height: 20px;
+            background: #e35d57;
+            @include border-radius(50px);
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ffffff;
+            font-size: 11px;
+            color: #ffffff;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .dropdown-menu {
+        border: none;
+        display: block !important;
+      }
+
+      .dropdown-item {
+        font-size: 13px;
+      }
+      .patientEmail {
+        background: #eeeeee;
+        padding-right: 30px;
+        position: relative;
+        height: 40px;
+        @include border-radius(5px);
+        width: 210px;
+
+        i {
+          position: absolute;
+          right: 10px;
+          top: 12px;
+          font-size: 16px;
+          color: $themeColor;
+        }
+        input {
+          border: none;
+          background: none;
+          height: 40px;
+          padding: 0px 10px;
+        }
+      }
+    }
+  }
+}
+
+header {
+  display: block;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 50px;
+  padding: 7px 15px;
+  z-index: 2;
+  left: 250px;
+
+  .search {
+    width: 300px;
+    height: 35px;
+    background: #ffffff;
+    @include border-radius(50px);
+    display: inline-block;
+    padding-left: 35px;
+    position: relative;
+    i {
+      position: absolute;
+      left: 12px;
+      top: 10px;
+      font-size: 15px;
+      color: #aaaaaa;
+    }
+    input {
+      width: 100%;
+      display: block;
+      height: 35px;
+      background: none;
+      border: none;
+      padding: 0px 10px 0px 0px;
+      color: #444444;
+    }
+  }
+
+  .headerUser {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    @include border-radius(50px);
+    float: right;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .notification {
+    float: right;
+    position: relative;
+    margin: 9px 20px 0px 0px;
+
+    &:hover i {
+      color: $themeColor;
+      cursor: pointer;
+    }
+    span {
+      width: 20px;
+      height: 20px;
+      background: #e35d57;
+      @include border-radius(50px);
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ffffff;
+      font-size: 11px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    i {
+      font-size: 22px;
+      color: #aaaaaa;
+    }
+  }
+}
+.title {
+  display: block;
+  font-size: 20px;
+  color: #444444;
+  text-align: center;
+  padding: 10px 0px;
+  z-index: 1;
+  position: relative;
+  margin-left: 250px;
+  font-weight: 600;
+}
+.sectionOuter {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  left: 250px;
+  bottom: 0px;
+  background: #f5f5f5;
+  right: 0px;
+  height: 100%;
+  padding: 104px 15px 15px 15px;
+
+  section {
+    flex: 1;
+    overflow: auto;
+    background: #ffffff;
+    padding: 15px;
+
+    &.leftSection {
+      border-right: 2px solid #eeeeee;
+      position: relative;
+
+      .leftFooter {
+        position: absolute;
+        height: 60px;
+        background: #ffffff;
+        padding: 10px;
+        left: 2px;
+        right: 0px;
+        bottom: 2px;
+
+        button {
+          min-width: 200px;
+        }
+      }
+      .previewContainer > div:last-child {
+        margin: 0px;
+      }
+      .previewContainer {
+        position: absolute;
+        width: 100%;
+        right: 0px;
+        left: 0px;
+        bottom: 65px;
+        overflow: auto;
+        top: 0px;
+        padding: 15px;
+
+        > div:last-child .arrowDown {
+          display: none;
+        }
+      }
+      .previewRow {
+        display: block;
+        text-align: center;
+        padding: 15px;
+        @include border-radius(10px);
+        background: #e8ecf2;
+        position: relative;
+        margin-bottom: 15px;
+
+        .questionNumber {
+          position: absolute;
+          background: $themeColor;
+          color: #ffffff;
+          padding: 0px 8px;
+          @include border-radius(3px);
+          top: 10px;
+          left: 10px;
+        }
+        .arrowDown {
+          position: absolute;
+          left: 49%;
+          top: 100%;
+          margin-top: 2px;
+        }
+        a.edit {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          width: 22px;
+          height: 22px;
+          background: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include border-radius(3px);
+
+          &:hover {
+            background: $themeColor;
+            color: #ffffff;
+          }
+        }
+
+        img,
+        video {
+          height: 100px;
+          display: inline-block;
+          margin-bottom: 5px;
+        }
+        .previewQuestion {
+          display: block;
+          font-size: 14px;
+          color: #444444;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &.rightSection {
+      text-align: center;
+      max-width: 415px;
+      .editorOuter {
+        width: 380px;
+        margin: auto;
+        background: #ffffff;
+        padding: 15px;
+        max-width: 100%;
+
+        #action {
+          margin-bottom: 20px;
+        }
+
+        img,
+        video {
+          max-height: 200px;
+          max-width: 100%;
+          display: inline-block;
+          margin-bottom: 10px;
+        }
+        input,
+        select {
+          width: 100%;
+          height: 40px;
+          background: #f5f5f5;
+          border: none;
+          @include border-radius(5px);
+          padding: 0px 15px;
+          margin-top: 5px;
+          font-size: 13px;
+          outline: none;
+        }
+      }
+    }
+  }
+}
