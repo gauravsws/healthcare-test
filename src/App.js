@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import Routes from "healthcare-test-routes";
-import history from "healthcare-test-history";
+import Routes from "doctorportal-routes";
+import history from "doctorportal-history";
 import "./index.scss";
 
 const App = () => {

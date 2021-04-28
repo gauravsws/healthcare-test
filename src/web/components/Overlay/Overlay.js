@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Button from "healthcare-test-components/Button/Button.js";
+import Button from "doctorportal-components/Button/Button.js";
 
-const Overlay = props => {
+const Overlay = (props) => {
   const { title, closeOverlay, subTitle, submitOverlay } = props;
   return (
     <React.Fragment>

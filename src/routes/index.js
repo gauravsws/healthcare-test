@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
-import Home from "healthcare-test-pages/Home/Home.js";
+import Home from "doctorportal-pages/Home/Home.js";
 
 //console.log(this.props);
 const Routes = () => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useStoreActions } from "easy-peasy";
 import { Link, useHistory, useLocation } from "react-router-dom";
 
-const Question = props => {
+const Question = (props) => {
   const history = useHistory();
   const location = useLocation();
   const [showSubmenu, setShowSubMenu] = useState(false);
@@ -13,9 +13,9 @@ const Question = props => {
 
   useEffect(() => {
     if (props.questionData) {
-      if (props.questionData.type == "audio") {
+      if (props.questionData.type == "AUDIO") {
         setIconClass("fa-music");
-      } else if (props.questionData.type == "video") {
+      } else if (props.questionData.type == "VIDEO") {
         setIconClass("fa-play-circle");
       } else {
         setIconClass("fa-font");
@@ -27,18 +27,32 @@ const Question = props => {
     <React.Fragment>
       <div className="previewRow">
         <div className="questionNumber">
-          <i className={`fa ${iconClass}`}></i> {props.questionData.id}
+          <i className={`fa ${iconClass}`}></i> {props.questionData.order}
         </div>
         <i className="fa fa-arrow-down arrowDown"></i>
-        <a className="edit">
-          <i className="fa fa-pencil" onClick={() => props.selectQuestion()} />
+        <a className="edit" title="Edit">
+          <i
+            className="fa fa-pencil"
+            onClick={() => props.selectQuestion(props.questionData._id)}
+          />
         </a>
-        {props.questionData.type == "audio" ? (
-          <img src="images/audio.png" />
-        ) : (
-          <img src="images/meditation-23.jpg" />
+        <a className="delete" title="Delete">
+          <i
+            className="fa fa-trash"
+            onClick={() => props.deleteQuestion(props.questionData._id)}
+          />
+        </a>
+        {props.questionData.type == "AUDIO" && (
+          <audio controls="controls">
+            <source type="audio/mp3" src={props.questionData.audioURL} />
+          </audio>
         )}
-        <div className="previewQuestion">{props.questionData.title}</div>
+        {props.questionData.type == "VIDEO" && (
+          <video controls>
+            <source type="video/webm" src={props.questionData.videoURL} />
+          </video>
+        )}
+        <div className="previewQuestion">{props.questionData.text}</div>
       </div>
     </React.Fragment>
   );

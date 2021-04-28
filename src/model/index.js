@@ -1,7 +1,7 @@
-import testModel from "./Test";
+import doctorModel from "./Doctor";
 
 const storeModel = {
-	test: testModel
+	doctor: doctorModel,
 };
 
 export default storeModel;
